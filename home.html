@@ -1,4 +1,5 @@
-     <!DOCTYPE html>
+             text-align:center;
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,6 +90,11 @@ body::before{
     border-radius:20px;
     padding:15px;
     position:relative;
+    text-decoration:none;
+    color:white;
+}
+.card:hover{
+    transform:scale(1.03);
 }
 .card h3{margin:5px 0;font-size:15px;}
 .card p{font-size:12px;color:#aaa;}
@@ -151,6 +157,7 @@ body::before{
     padding:10px 15px;
     border-radius:10px;
     color:white;
+    cursor:pointer;
 }
 
 /* Bottom nav */
@@ -163,10 +170,11 @@ body::before{
     justify-content:space-around;
     padding:10px 0;
 }
-.nav div{
+.nav a{
     text-align:center;
     font-size:12px;
     color:#777;
+    text-decoration:none;
 }
 .nav .active{color:#a855f7;}
 </style>
@@ -190,60 +198,65 @@ body::before{
 <input placeholder="Search tools, features...">
 </div>
 
+<!-- CLICKABLE CARDS -->
 <div class="grid">
 
-<div class="card">
+<a href="title-gen.html" class="card">
 <div class="icon title"><i class="fas fa-font"></i></div>
 <h3>Title Generator</h3>
 <p>Generate SEO friendly titles</p>
 <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-</div>
+</a>
 
-<div class="card">
+<a href="hashtag-gen.html" class="card">
 <div class="icon hash"><i class="fas fa-hashtag"></i></div>
 <h3>Hashtag Generator</h3>
 <p>Find trending hashtags</p>
 <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-</div>
+</a>
 
-<div class="card">
+<a href="thumbnail.html" class="card">
 <div class="icon thumb"><i class="far fa-image"></i></div>
 <h3>Thumbnail Maker</h3>
 <p>Create thumbnails</p>
 <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-</div>
+</a>
 
-<div class="card">
+<a href="result.html" class="card">
 <div class="icon result"><i class="fas fa-chart-bar"></i></div>
 <h3>Title Result</h3>
 <p>Analyze titles</p>
 <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-</div>
+</a>
 
 </div>
 
+<!-- RECENT -->
 <div class="recent">
 <h4>Recent Tools</h4>
 <div class="item"><span>Title Generated</span><span>2 min</span></div>
 <div class="item"><span>Hashtag Generated</span><span>5 min</span></div>
 </div>
 
+<!-- UPGRADE -->
 <div class="upgrade">
 <div>
 <h4>Upgrade to ZYNX Pro</h4>
 <p style="font-size:12px;color:#ddd;">Unlock premium features</p>
 </div>
-<button>Upgrade</button>
+<button onclick="window.location.href='upgrade.html'">Upgrade</button>
 </div>
 
 <div style="height:80px"></div>
 
+<!-- NAV -->
 <div class="nav">
-<div class="active"><i class="fas fa-home"></i><br>Home</div>
-<div><i class="fas fa-clock"></i><br>History</div>
-<div><i class="fas fa-heart"></i><br>Fav</div>
-<div><i class="fas fa-user"></i><br>Profile</div>
+<a href="home.html" class="active">🏠<br>Home</a>
+<a href="history.html">⏱<br>History</a>
+<a href="fav.html">❤️<br>Fav</a>
+<a href="profile.html">👤<br>Profile</a>
 </div>
 
 </body>
-</html>                               
+</html>
+                            
