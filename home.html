@@ -1,259 +1,249 @@
-<!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZYNX - Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #050308;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZYNX Home</title>
 
-        /* Header Section */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            margin-top: 10px;
-        }
-        .menu-btn {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-        .brand-logo {
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            text-decoration: none;
-            color: white;
-        }
-        .brand-logo span {
-            color: #a855f7;
-        }
-        .noti-btn {
-            position: relative;
-            font-size: 20px;
-            color: #ccc;
-        }
-        .noti-dot {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            width: 8px;
-            height: 8px;
-            background: #ff4d4d;
-            border-radius: 50%;
-            border: 2px solid #050308;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        /* Welcome Text */
-        .welcome-section {
-            padding: 20px;
-        }
-        .welcome-section h2 {
-            font-size: 26px;
-            margin-bottom: 5px;
-        }
-        .welcome-section p {
-            color: #888;
-            font-size: 14px;
-        }
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#050308;
+    color:white;
+}
 
-        /* Cards Grid */
-        .cards-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            padding: 20px;
-        }
+/* Glow */
+body::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle,#a855f7,transparent);
+    bottom:-100px;
+    right:-100px;
+    opacity:0.3;
+}
 
-        .card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 20px;
-            position: relative;
-            transition: 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-        .card:hover {
-            border-color: #a855f7;
-            background: rgba(168, 85, 247, 0.05);
-            transform: translateY(-5px);
-        }
+/* Header */
+.header{
+    display:flex;
+    justify-content:space-between;
+    padding:20px;
+    align-items:center;
+}
+.menu{
+    width:40px;height:40px;
+    background:rgba(255,255,255,0.05);
+    display:flex;align-items:center;justify-content:center;
+    border-radius:12px;
+}
+.logo{
+    font-weight:bold;
+    letter-spacing:4px;
+}
+.logo span{color:#a855f7;}
+.bell{position:relative;}
+.bell::after{
+    content:"";
+    position:absolute;
+    width:6px;height:6px;
+    background:red;
+    border-radius:50%;
+    top:0;right:0;
+}
 
-        .icon-box {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
+/* Welcome */
+.welcome{padding:0 20px;}
+.welcome h2{margin:10px 0;}
+.welcome p{color:#888;font-size:14px;}
 
-        /* Specific Card Colors */
-        .title-card .icon-box { background: #6d28d9; }
-        .hashtag-card .icon-box { background: #2563eb; }
-        .thumbnail-card {
-            grid-column: span 2;
-            display: flex;
-            align-items: flex-start;
-        }
-        .thumbnail-card .icon-box { background: #db2777; margin-right: 15px; }
+/* Search */
+.search{
+    margin:15px 20px;
+    background:rgba(255,255,255,0.05);
+    padding:12px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.search input{
+    background:none;
+    border:none;
+    color:white;
+    outline:none;
+    width:100%;
+}
 
-        .card-info h3 {
-            font-size: 16px;
-            margin: 0 0 5px 0;
-        }
-        .card-info p {
-            font-size: 12px;
-            color: #888;
-            line-height: 1.4;
-            margin: 0;
-        }
+/* Cards */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    padding:20px;
+}
+.card{
+    background:linear-gradient(135deg,#1a0f2e,#0a0718);
+    border-radius:20px;
+    padding:15px;
+    position:relative;
+}
+.card h3{margin:5px 0;font-size:15px;}
+.card p{font-size:12px;color:#aaa;}
 
-        .arrow-btn {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            width: 30px;
-            height: 30px;
-            background: rgba(168, 85, 247, 0.2);
-            color: #a855f7;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-        }
+.icon{
+    width:40px;height:40px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:10px;
+}
 
-        /* Bottom Navigation */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: rgba(10, 10, 15, 0.95);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 0 25px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 30px 30px 0 0;
-        }
-        .nav-item {
-            text-align: center;
-            color: #666;
-            text-decoration: none;
-            font-size: 11px;
-            transition: 0.3s;
-            flex: 1;
-        }
-        .nav-item i {
-            font-size: 20px;
-            display: block;
-            margin-bottom: 5px;
-            padding: 10px;
-            border-radius: 12px;
-        }
-        .nav-item.active {
-            color: #a855f7;
-        }
-        .nav-item.active i {
-            background: rgba(168, 85, 247, 0.1);
-        }
+.title{background:#6d28d9;}
+.hash{background:#2563eb;}
+.thumb{background:#db2777;}
+.result{background:#f59e0b;}
 
-        /* Hidden spacing for scroll */
-        .spacer { height: 100px; }
+.arrow{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    background:#a855f7;
+    width:25px;height:25px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
-    </style>
+/* Recent */
+.recent{
+    margin:20px;
+    background:rgba(255,255,255,0.03);
+    padding:15px;
+    border-radius:20px;
+}
+.recent h4{margin:0 0 10px;}
+.item{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+    font-size:13px;
+    color:#aaa;
+}
+
+/* Upgrade */
+.upgrade{
+    margin:20px;
+    padding:20px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#2a124d,#6d28d9);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.upgrade button{
+    background:linear-gradient(90deg,#a855f7,#ec4899);
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    color:white;
+}
+
+/* Bottom nav */
+.nav{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:#0a0a12;
+    display:flex;
+    justify-content:space-around;
+    padding:10px 0;
+}
+.nav div{
+    text-align:center;
+    font-size:12px;
+    color:#777;
+}
+.nav .active{color:#a855f7;}
+</style>
+
 </head>
 <body>
 
-    <header class="header">
-        <div class="menu-btn"><i class="fas fa-bars"></i></div>
-        <a href="home.html" class="brand-logo">ZYN<span>X</span></a>
-        <div class="noti-btn">
-            <i class="far fa-bell"></i>
-            <span class="noti-dot"></span>
-        </div>
-    </header>
+<div class="header">
+<div class="menu"><i class="fas fa-bars"></i></div>
+<div class="logo">ZYN<span>X</span></div>
+<div class="bell"><i class="far fa-bell"></i></div>
+</div>
 
-    <section class="welcome-section">
-        <h2>Hi, Creator! 👋</h2>
-        <p>What would you like to create today?</p>
-    </section>
+<div class="welcome">
+<h2>Hi, Creator! 👋</h2>
+<p>What would you like to create today?</p>
+</div>
 
-    <div class="cards-container">
-        
-        <a href="title-gen.html" class="card title-card">
-            <div class="icon-box"><i class="fas fa-font"></i></div>
-            <div class="card-info">
-                <h3>Title Generator</h3>
-                <p>Generate SEO friendly titles in seconds</p>
-            </div>
-            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
-        </a>
+<div class="search">
+<i class="fas fa-search"></i>
+<input placeholder="Search tools, features...">
+</div>
 
-        <a href="hashtag-gen.html" class="card hashtag-card">
-            <div class="icon-box"><i class="fas fa-hashtag"></i></div>
-            <div class="card-info">
-                <h3>Hashtag Generator</h3>
-                <p>Find trending & best hashtags for your content</p>
-            </div>
-            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
-        </a>
+<div class="grid">
 
-        <a href="thumbnail.html" class="card thumbnail-card">
-            <div class="icon-box"><i class="far fa-image"></i></div>
-            <div class="card-info">
-                <h3>Thumbnail Maker</h3>
-                <p>Create stunning thumbnails that get more clicks</p>
-            </div>
-            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
-        </a>
-    </div>
+<div class="card">
+<div class="icon title"><i class="fas fa-font"></i></div>
+<h3>Title Generator</h3>
+<p>Generate SEO friendly titles</p>
+<div class="arrow"><i class="fas fa-arrow-right"></i></div>
+</div>
 
-    <div class="spacer"></div>
+<div class="card">
+<div class="icon hash"><i class="fas fa-hashtag"></i></div>
+<h3>Hashtag Generator</h3>
+<p>Find trending hashtags</p>
+<div class="arrow"><i class="fas fa-arrow-right"></i></div>
+</div>
 
-    <nav class="bottom-nav">
-        <a href="title-gen.html" class="nav-item">
-            <i class="fas fa-font"></i>
-            <span>Title</span>
-        </a>
-        <a href="hashtag-gen.html" class="nav-item">
-            <i class="fas fa-hashtag"></i>
-            <span>Hashtag</span>
-        </a>
-        <a href="thumbnail.html" class="nav-item">
-            <i class="far fa-image"></i>
-            <span>Thumbnail</span>
-        </a>
-        <a href="profile.html" class="nav-item">
-            <i class="far fa-user"></i>
-            <span>Profile</span>
-        </a>
-    </nav>
+<div class="card">
+<div class="icon thumb"><i class="far fa-image"></i></div>
+<h3>Thumbnail Maker</h3>
+<p>Create thumbnails</p>
+<div class="arrow"><i class="fas fa-arrow-right"></i></div>
+</div>
+
+<div class="card">
+<div class="icon result"><i class="fas fa-chart-bar"></i></div>
+<h3>Title Result</h3>
+<p>Analyze titles</p>
+<div class="arrow"><i class="fas fa-arrow-right"></i></div>
+</div>
+
+</div>
+
+<div class="recent">
+<h4>Recent Tools</h4>
+<div class="item"><span>Title Generated</span><span>2 min</span></div>
+<div class="item"><span>Hashtag Generated</span><span>5 min</span></div>
+</div>
+
+<div class="upgrade">
+<div>
+<h4>Upgrade to ZYNX Pro</h4>
+<p style="font-size:12px;color:#ddd;">Unlock premium features</p>
+</div>
+<button>Upgrade</button>
+</div>
+
+<div style="height:80px"></div>
+
+<div class="nav">
+<div class="active"><i class="fas fa-home"></i><br>Home</div>
+<div><i class="fas fa-clock"></i><br>History</div>
+<div><i class="fas fa-heart"></i><br>Fav</div>
+<div><i class="fas fa-user"></i><br>Profile</div>
+</div>
 
 </body>
-</html>
+</html>                               
