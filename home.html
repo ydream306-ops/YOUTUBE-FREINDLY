@@ -1,5 +1,4 @@
-             text-align:center;
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,7 +110,6 @@ body::before{
 .title{background:#6d28d9;}
 .hash{background:#2563eb;}
 .thumb{background:#db2777;}
-.result{background:#f59e0b;}
 
 .arrow{
     position:absolute;
@@ -123,6 +121,11 @@ body::before{
     display:flex;
     align-items:center;
     justify-content:center;
+}
+
+/* Thumbnail full width */
+.full{
+    grid-column: span 2;
 }
 
 /* Recent */
@@ -198,7 +201,7 @@ body::before{
 <input placeholder="Search tools, features...">
 </div>
 
-<!-- CLICKABLE CARDS -->
+<!-- CARDS -->
 <div class="grid">
 
 <a href="title-gen.html" class="card">
@@ -215,17 +218,10 @@ body::before{
 <div class="arrow"><i class="fas fa-arrow-right"></i></div>
 </a>
 
-<a href="thumbnail.html" class="card">
+<a href="thumbnail.html" class="card full">
 <div class="icon thumb"><i class="far fa-image"></i></div>
 <h3>Thumbnail Maker</h3>
-<p>Create thumbnails</p>
-<div class="arrow"><i class="fas fa-arrow-right"></i></div>
-</a>
-
-<a href="result.html" class="card">
-<div class="icon result"><i class="fas fa-chart-bar"></i></div>
-<h3>Title Result</h3>
-<p>Analyze titles</p>
+<p>Create stunning thumbnails that get more clicks</p>
 <div class="arrow"><i class="fas fa-arrow-right"></i></div>
 </a>
 
@@ -236,6 +232,7 @@ body::before{
 <h4>Recent Tools</h4>
 <div class="item"><span>Title Generated</span><span>2 min</span></div>
 <div class="item"><span>Hashtag Generated</span><span>5 min</span></div>
+<div class="item"><span>Thumbnail Created</span><span>12 min</span></div>
 </div>
 
 <!-- UPGRADE -->
@@ -259,4 +256,6 @@ body::before{
 
 </body>
 </html>
+
+
                             
